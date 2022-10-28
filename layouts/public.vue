@@ -1,7 +1,5 @@
   <template>
     <div>
-      This is my publicaaaa
-
       <Nuxt />
     </div>
   </template>
