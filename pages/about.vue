@@ -1,6 +1,8 @@
 <template>
   <div>
-    about
+    <UINavBar :user="this.$store.state.auth.user.email"></UINavBar>
+
+
 
   </div>
 </template>

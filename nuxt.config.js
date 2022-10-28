@@ -39,11 +39,35 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+
+
+
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/laravel': {
+      target: process.env.API_URL,
+        pathRewrite: { '^/laravel': '/' }
+    }
+  },
+  auth: {
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+          url: '/laravel'
+      }
+    }
+  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
+
 
   env: {
     appName: process.env.APP_NAME

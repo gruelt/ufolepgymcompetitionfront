@@ -17,7 +17,7 @@
 
 export default {
   name: "login.vue",
-  layout: "public"
+  layout: "public",
 }
 </script>
 

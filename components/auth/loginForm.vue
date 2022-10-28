@@ -2,7 +2,7 @@
 
   <div>
 
-    <b-form @submit="" @reset="" v-if="1">
+    <b-form @submit="login" @reset="" v-if="1">
       <b-form-group
         id="input-group-1"
         label="Adresse Mail:"
@@ -27,8 +27,8 @@
         ></b-form-input>
       </b-form-group>
 
-
-      <b-button type="submit" variant="primary">Envoyer</b-button>
+      <b-button @click="login" variant="primary">Envoyer</b-button>
+<!--      <b-button type="submit" variant="primary">Envoyer</b-button>-->
       <b-button type="reset" variant="danger">Effacer</b-button>
     </b-form>
 
@@ -45,7 +45,23 @@ export default {
       email: '',
       password: 'gne'
     }
-  }
+  },
+  methods: {
+    async login() {
+      try {
+        await this.$auth.loginWith('laravelSanctum', {
+          data: {
+            email: this.email,
+            password: this.password,
+          },
+        })
+
+        this.$router.push('/')
+      } catch (error){
+        console.log(error)
+      }
+    },
+  },
 }
 </script>
 
