@@ -1,4 +1,4 @@
-# hello-nuxt
+# Ufolep Competition front
 
 ## Build Setup
 
